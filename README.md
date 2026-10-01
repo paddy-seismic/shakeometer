@@ -27,7 +27,7 @@ or network setup.
 ## What's on the gauge
 
 - **Centre number and needle**: the current magnitude, measured over the
-  last few of seconds of data.
+  last few seconds of data.
 - **Red arrow**: the largest recent magnitude. It fades out over
   `--max_mag_keep_time` seconds unless something bigger comes along.
 - **Today's maximum**: the largest magnitude since the program started
@@ -53,6 +53,7 @@ measurement window (grey) and the time of the recent maximum (vertical red line)
 | `amps.py` | Instrument response removal, Wood-Anderson simulation, amplitude and magnitude |
 | `run_gauge_shake.sh`, `run_combo_shake.sh` | Example scripts for a Raspberry Shake (local SeedLink server) |
 | `run_gauge_EI-DSB.sh`, `run_combo_EI-DSB.sh` | Example scripts for INSN station EI.DSB via the public EarthScope seedlink server |
+| `run_gauge_shake_windows.bat`, `run_combo_shake_windows.bat` | Example scripts for a Windows laptop connected to a Raspberry Shake |
 | `EI.DSB.xml` | StationXML (instrument response) for EI.DSB, used by the EI-DSB scripts |
 | `desktop/*.desktop` | example Desktop shortcuts for a Raspberry Shake |
 | `logos/` | Logos used by the example scripts |
@@ -75,6 +76,14 @@ measurement window (grey) and the time of the recent maximum (vertical red line)
 
 ```bash
 pip install -r requirements.txt
+```
+
+On Windows, install Python from [python.org](https://www.python.org)
+(tick "Add python.exe to PATH" in the installer), then in a command
+prompt in the shakeometer folder:
+
+```bat
+python -m pip install -r requirements.txt
 ```
 
 ### Raspberry Shake / Raspberry Pi
@@ -152,8 +161,31 @@ python3 shakeometer.py \
     --combo_plot
 ```
 
+### Windows laptop connected to a Raspberry Shake
+
+Useful when the Shake has no screen of its own: connect the laptop
+directly to the Shake with an ethernet cable and run shakeometer on the
+laptop, reading from the Shake's SeedLink server.
+
+1. Download the Shake's StationXML (see above) into the shakeometer
+   folder while you still have internet.
+2. At the top of `run_gauge_shake_windows.bat` and
+   `run_combo_shake_windows.bat`, set `SHAKE` to your station code and
+   `SHAKE_IP` to the Shake's address.
+   - Try `rs.local` first (the default). `ping -4 rs.local` in a
+     command prompt tells you if the laptop can find it.
+   - If not, use the Shake's IP address. With a direct cable and no
+     router, the Shake and laptop give themselves `169.254.x.x`
+     addresses after a minute or so; run `arp -a` and look under the
+     ethernet adapter for the Shake's `169.254.x.x` entry.
+3. Double-click the `.bat` file.
+
+A laptop has far more power than the Shake's Pi, so these scripts use
+faster update rates and a finer spectrogram than the Shake scripts.
+
 All the example scripts assume they are run from the shakeometer
-folder (for the logo and StationXML paths). Remove the `--logo_*` lines
+folder (for the logo and StationXML paths). The Windows scripts change
+to their own folder automatically. Remove the `--logo_*` lines
 if you don't want logos, or point them at your own images.
 
 ### Keyboard shortcuts
@@ -305,7 +337,7 @@ Hutton, L. K., and D. M. Boore. 1987. The M<sub>L</sub> Scale in Southern Califo
 
 ## Licensing
 
-Copyright (c) 2026, Patrick Smith and all persons listed in [CONTRIBUTORS.md](https://git.dias.ie/paddy/shakeometer/blob/master/CONTRIBUTORS.md). This project is licensed under the EUPL, v1.2. See [LICENSE.txt](https://git.dias.ie/paddy/shakeometer/blob/master/LICENSE.txt) for more information.
+Copyright (c) 2026, Patrick Smith and all persons listed in [CONTRIBUTORS.md](https://git.dias.ie/paddy/shakeometer/-/blob/main/CONTRIBUTORS.md). This project is licensed under the EUPL, v1.2. See [LICENSE.txt](https://git.dias.ie/paddy/shakeometer/-/blob/main/LICENCE.txt) for more information.
 
 ## Meta
  Patrick Smith – Patrick.Smith@dias.ie
