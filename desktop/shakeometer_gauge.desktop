@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Shakeometer Gauge
+Name[en_GB]=Shakeometer Gauge
+Name[en_IE]=Shakeometer Gauge
+Comment=Real-time magnitude gauge for this Raspberry Shake
+Icon=/home/myshake/Software/shakeometer/shakeometer.png
+Path=/home/myshake/Software/shakeometer
+Exec=lxterminal -t "Shakeometer" --working-directory=/home/myshake/Software/shakeometer -e ./run_gauge_shake.sh
+Terminal=true
+X-KeepTerminal=true
+Categories=None;
