@@ -336,6 +336,8 @@ Hutton, L. K., and D. M. Boore. 1987. The M<sub>L</sub> Scale in Southern Califo
 ## Release History
 * 0.0.1
     * First release. Work in progress
+* 0.0.2
+* * Tagged release for Github
 
 ## Licensing
 
@@ -351,6 +353,7 @@ Copyright (c) 2026, Patrick Smith and all persons listed in [CONTRIBUTORS.md](ht
 [https://git.dias.ie/paddy/shakeometer](https://git.dias.ie/paddy/shakeometer)
 
 ## Cite this code
-[![DOI](https://zenodo.org/badge/263127922.svg)](https://zenodo.org/badge/latestdoi/263127922)
+[![DOI](https://zenodo.org/badge/1429860650.svg)](https://doi.org/10.5281/zenodo.23570435)
+
 
 
