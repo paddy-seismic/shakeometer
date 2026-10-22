@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Shakeometer: a real-time magnitude display for seismology outreach"
+abstract: >-
+  Shakeometer reads a live seismogram from a SeedLink server and shows
+  the local magnitude of the ground motion on a large, speedometer-style
+  gauge, either on its own or under a live waveform and spectrogram.
+  It runs on an ordinary laptop/desktop, or directly on a Raspberry
+  Shake plugged into a monitor, as a self-contained outreach display.
+authors:
+  - family-names: Smith
+    given-names: Patrick
+    email: Patrick.Smith@dias.ie
+    affiliation: "Dublin Institute for Advanced Studies (DIAS); Irish National Seismic Network (INSN)"
+    orcid: "https://orcid.org/0000-0003-1460-8984"
+license: EUPL-1.2
+repository-code: "https://git.dias.ie/paddy/shakeometer"
+keywords:
+  - seismology
+  - outreach
+  - local magnitude
+  - real-time
+  - SeedLink
+  - Raspberry Shake
+  - ObsPy

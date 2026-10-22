@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 *.prof
 *.log
+git_commit
+pi_pip_install_commands.txt

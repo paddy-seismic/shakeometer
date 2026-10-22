@@ -70,7 +70,7 @@ measurement window (grey) and the time of the recent maximum (vertical red line)
 - pyqtgraph
 - A desktop/graphical environment to display the window. On a Raspberry
   Shake this means installing a desktop environment on it; how to do that is beyond
-  the scope of this project.
+  the scope of this project, although the code was tested using the `raspberrypi-ui-mods` package. 
 
 ### Desktop or laptop
 
@@ -89,13 +89,15 @@ python -m pip install -r requirements.txt
 ### Raspberry Shake / Raspberry Pi
 
 The Raspberry Shake OS (Raspbian Buster) comes with Python 3.7 and
-ObsPy can be installed with pip. PyQt5 has no pip wheel for the Pi, so
+ObsPy can be installed with pip. The specific package versions tested and confirmed to work are shown below. PyQt5 has no pip wheel for the Pi, so
 install it from apt, and pin pyqtgraph to a version that works with the
 Qt 5.11 that apt provides (pyqtgraph 0.12 and later need Qt 5.12+):
 
 ```bash
-sudo apt install python3-pyqt5
-pip3 install --user obspy "pyqtgraph==0.11.1"
+sudo apt install python3-pyqt5 python3-pip libatlas-base-dev
+python3 -m pip install --upgrade pip
+python3 -m pip install matplotlib==3.5.3 numpy==1.21.4 obspy --only-binary :all:
+python3 -m pip install "pyqtgraph==0.11.1"
 ```
 
 (On newer Raspberry Pi OS releases, pip may refuse with an
